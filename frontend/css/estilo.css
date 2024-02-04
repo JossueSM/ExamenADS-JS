@@ -1,0 +1,239 @@
+header {
+    background-color: #333; 
+    color: #fff; 
+    padding: 20px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.header-container {
+    max-width: 1200px; 
+    margin: 0 auto; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+
+.nav {
+    list-style: none; 
+    margin: 0;
+    padding: 0;
+}
+
+.nav li {
+    display: inline-block; 
+    margin-left: 20px; 
+}
+
+.nav li a {
+    color: #fff; 
+    text-decoration: none; 
+    transition: color 0.3s ease; 
+}
+
+.nav li a:hover {
+    color: #ffd700; 
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5px;
+  }
+
+  .productContainer {
+    margin-top: 10px;
+  }
+
+  .filtros {
+    position: fixed; /* Fija la posición del elemento */
+    top: 50px; /* Distancia desde la parte superior de la ventana */
+    right: 20px; /* Distancia desde el borde derecho de la ventana */
+    background-color: #b7b6b5;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    font-size: 20px;
+    padding: 20px;
+}
+
+  
+  h1 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+  
+  p {
+    font-size: 1.1rem;
+  }
+  
+  .menu {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  .menu-item {
+    display: inline-block;
+    margin-right: 20px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .menu-item:hover {
+    color: #ffa500; /* Cambia el color al pasar el ratón sobre el enlace */
+  }
+  
+  .hero-image {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    border-radius: 5px;
+  }
+  
+  .cta-button:hover {
+    background-color: #0056b3;
+  }
+
+  button {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 40px;
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-left: 20px;
+    padding: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+p {
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333; /* Color de texto oscuro */
+    margin-bottom: 20px;
+}
+
+.custom-card {
+  height: 100%; /* Altura máxima */
+}
+
+.custom-card .card-body {
+  height: 100%; /* Altura máxima */
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.ch{
+  margin-right: 20px;
+}
+
+
+
+
+.footer {
+  background-color: #333;
+  color: #ffffff;
+  padding: 10px; /* Incremento en el espaciado interno */
+  font-size: 16px; /* Ajuste del tamaño de fuente */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Alineación vertical al inicio */
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  flex: 1;
+  margin-bottom: 20px; /* Incremento en el espacio entre columnas */
+}
+
+.footer-column h3 {
+  margin-bottom: 15px; /* Incremento en el espacio debajo de los títulos */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; /* Eliminación del margen predeterminado */
+}
+
+ul li {
+  margin-bottom: 10px; /* Incremento en el espacio entre elementos de la lista */
+}
+
+ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+ul li a:hover {
+  color: #ffd700;
+}
+
+.social-links {
+  display: flex;
+
+}
+
+.social-links li {
+  margin-right: 10px; /* Ajuste en el espacio entre iconos sociales */
+}
+
+.footer-bottom {
+  width: 100%;
+  color:#ffffff;
+  border-top: 1px solid #555;
+  padding-top: 5px; /* Incremento en el espacio encima del texto de derechos de autor */
+  text-align: center;
+}
+
+.totalp {
+  background-color: #f0f0f0;
+  margin-top: none;
+  border-radius: 80px;
+  padding: 21px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+

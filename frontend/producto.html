@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalles del Producto</title>
+  <!-- Enlace al archivo CSS de Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/frontend/css/estilo.css">
+  <link rel="stylesheet" href="/frontend/css/style.css">
+</head>
+<header>
+    <h1>Catálogo de Productos</h1>
+    <nav>
+        <ul class="menu">
+          <li><a href="index.html" class="menu-item">Home</a></li>
+          <li><a href="catalogo.html" class="menu-item">Catálogo</a></li>
+          <li><a href="contacto.html" class="menu-item">Contacto</a></li>
+        </ul>
+      </nav>
+  </header>
+<body>
+  <div class="container">
+    <h1>Detalles del Producto</h1>
+    <div id="product-details">
+      <!-- Aquí se mostrarán los detalles del producto -->
+    </div>
+     
+
+    
+    
+    <script>
+    function rate(rating) {
+        document.getElementById("ratingSelected").innerText = "Has calificado con " + rating + " estrellas.";
+        // Aquí podrías enviar la calificación al servidor o realizar otras acciones según sea necesario
+    }
+    </script>
+<style>
+  .rating {
+      unicode-bidi: bidi-override;
+      direction: rtl;
+      text-align: center;
+  }
+  .rating > span {
+      display: inline-block;
+      position: relative;
+      width: 1.1em;
+  }
+  .rating > span:hover:before,
+  .rating > span:hover ~ span:before {
+      content: "\2605";
+      position: absolute;
+      color: gold;
+  }
+  .rating > span:before {
+      content: "\2606";
+      position: absolute;
+  }
+</style>
+
+
+  </div>
+  <hr>
+  <h3>Comentarios</h3>
+  <div id="comentarios-container" class="d-flex flex-wrap justify-content-start"></div>
+
+  <!-- Agrega los scripts de Bootstrap y tu script de comentarios.js -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="comentarios.js"></script>
+
+
+
+  <!-- Script para obtener y mostrar los detalles del producto -->
+  <script src="/producto.js"></script>
+  <script src="/comentario.js"></script>
+
+</body>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>Contacto</h3>
+      <ul>
+        <li>Dirección: Dionisio Mejía y Santa Fé, Quito Sur</li>
+        <li>Celular: 0999999991</li>
+        <li><a href="/frontend/catalogo.html">Ofertas</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Enlaces Rápidos</h3>
+      <ul>
+        <li><a href="/frontend/index.html">Inicio</a></li>
+        <li><a href="/frontend/catalogo.html">Productos</a></li>
+        <li><a href="/frontend/catalogo.html">Ofertas</a></li>
+        <li><a href="/frontend/contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Síguenos</h3>
+      
+      <ul class="social-links">
+        <li><a href="https://www.facebook.com/jossue.simancasmoreno"><i class="fab fa-facebook">Facebook</i></a></li>
+        <li><a href="#"><i class="fab fa-twitter">X</i></a></li>
+        <li><a href="https://www.instagram.com/jossue_s_m/"><i class="fab fa-instagram">Instagram</i></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2024 Mi Tienda. Todos los derechos reservados.
+  </div>
+</footer>
+</html>

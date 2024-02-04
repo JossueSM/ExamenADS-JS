@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Productos</title>
+  <link rel="stylesheet" href="/frontend/css/estilo.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <header>
+    <h1>Catálogo de Productos</h1>
+    <nav>
+        <ul class="menu">
+          <li><a href="index.html" class="menu-item">Home</a></li>
+          <li><a href="catalogo.html" class="menu-item">Catálogo</a></li>
+          <li><a href="contacto.html" class="menu-item">Contacto</a></li>
+        </ul>
+      </nav>
+  </header>
+
+
+  <div class="filtros">
+    <form id="filterForm">
+        <label class="ch"><input type="checkbox"  name="origen" value="local" onclick="applyFilters()"> Local</label>
+        <label class="ch"><input type="checkbox"  name="origen" value="importado" onclick="applyFilters()"> Importado</label>
+        <label class="ch"><input type="checkbox"  name="productor" value="minorista" onclick="applyFilters()"> Productor Minorista</label>
+        <label class="ch"><input type="checkbox"  name="productor" value="mayorista" onclick="applyFilters()"> Productor Mayorista</label>
+      </form>
+  </div>
+  
+  <div class="container" id="productContainer">
+    <!-- Productos que se llenan con el script.js -->
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      applyFilters()
+    });
+  </script>
+  
+  <script src="/script.js"></script>
+
+  
+  
+</body>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>Contacto</h3>
+      <ul>
+        <li>Dirección: Dionisio Mejía y Santa Fé, Quito Sur</li>
+        <li>Celular: 0999999991</li>
+        <li><a href="/frontend/catalogo.html">Ofertas</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Enlaces Rápidos</h3>
+      <ul>
+        <li><a href="/frontend/index.html">Inicio</a></li>
+        <li><a href="/frontend/catalogo.html">Productos</a></li>
+        <li><a href="/frontend/catalogo.html">Ofertas</a></li>
+        <li><a href="/frontend/contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Síguenos</h3>
+      
+      <ul class="social-links">
+        <li><a href="https://www.facebook.com/jossue.simancasmoreno"><i class="fab fa-facebook"> Facebook</i></a></li>
+        <li><a href="#"><i class="fab fa-twitter"> X</i></a></li>
+        <li><a href="https://www.instagram.com/jossue_s_m/"><i class="fab fa-instagram"> Instagram</i></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2024 Mi Tienda. Todos los derechos reservados.
+  </div>
+</footer>
+ 
+</html>
+
