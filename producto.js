@@ -10,32 +10,52 @@ document.addEventListener('DOMContentLoaded', async () => {
         throw new Error('Error al obtener los detalles del producto');
       }
       const product = await response.json();
+
+      const response1 = await fetch(`http://localhost:3000/comentarios?id_producto=${productId}`);
+      if (!response1.ok) {
+        throw new Error('Error al obtener los detalles del comentario');
+      }
+      const comentario = await response1.json();
   
       // Renderizar los detalles del producto en la página
-      renderProductDetails(product);
+      renderProductDetails(product,comentario);
     } catch (error) {
       console.error(error);
       // Manejar el error, por ejemplo, mostrando un mensaje al usuario
     }
   });
   
-  function renderProductDetails(product) {
+  function renderProductDetails(product, comentarios) {
     // Obtener el contenedor donde se mostrarán los detalles del producto
     const productDetailsContainer = document.getElementById('product-details');
-  
+
+    // Calcular el promedio de calificaciones
+    let totalCalificaciones = 0;
+    comentarios.forEach(comentario => {
+        totalCalificaciones += comentario.calificacion; // Sumar la calificación actual al total
+    });
+    const cantidadComentarios = comentarios.length;
+    const promedio = totalCalificaciones / cantidadComentarios;
+    console.log('El promedio de calificaciones es:', promedio);
+
+    // Crear el label para mostrar el promedio de calificaciones
+    const promedioLabel = document.createElement('label');
+    promedioLabel.textContent = `Estrellas: ${promedio.toFixed(1)}`;
+
     // Crear la tarjeta de Bootstrap para mostrar los detalles del producto
     const card = document.createElement('div');
-    card.classList.add('card');
-  
+    card.classList.add('card', 'bg-light', 'text-dark'); // Cambiar el color de la tarjeta
+    card.style.border = '2px solid #007bff'; // Cambiar el borde de la tarjeta
+
     // Crear el encabezado de la tarjeta
     const cardHeader = document.createElement('div');
     cardHeader.classList.add('card-header', 'text-white', 'bg-primary');
     cardHeader.textContent = 'Detalles del Producto';
-  
+
     // Crear el cuerpo de la tarjeta
     const cardBody = document.createElement('div');
     cardBody.classList.add('card-body');
-  
+
     // Crear la imagen del producto
     const productImage = document.createElement('img');
     productImage.classList.add('card-img-top');
@@ -44,63 +64,51 @@ document.addEventListener('DOMContentLoaded', async () => {
     productImage.style.width = '300px'; // Establecer el ancho
     productImage.style.height = '300px'; // Establecer la altura
     productImage.style.objectFit = 'cover'; // Ajustar la imagen sin distorsión
-  
+
     // Crear el contenedor para centrar la imagen
     const imageContainer = document.createElement('div');
     imageContainer.classList.add('d-flex', 'justify-content-center');
-  
+
     // Agregar la imagen al contenedor y luego al cuerpo de la tarjeta
     imageContainer.appendChild(productImage);
     cardBody.appendChild(imageContainer);
-  
+
     // Crear el nombre del producto
     const productName = document.createElement('h2');
     productName.classList.add('nombre_producto');
     productName.textContent = product.nombre_producto;
-  
+
     // Crear el ID del producto
     const productId = document.createElement('p');
     productId.classList.add('id');
     productId.innerHTML = `<strong>ID: </strong>${product.id}`;
-  
+
     // Crear la descripción del producto
     const productDescription = document.createElement('p');
     productDescription.classList.add('card-text');
     productDescription.innerHTML = `<strong>Descripción: </strong> ${product.descripcion}`;
-  
+
     // Crear el precio del producto
     const productPrice = document.createElement('p');
     productPrice.classList.add('price');
     productPrice.innerHTML = `<strong>Precio: </strong>${product.precio} $`;
-  
+
     // Crear el tipo de productor del producto
     const productProductor = document.createElement('p');
     productProductor.classList.add('type');
     productProductor.innerHTML = `<strong>Productor Minorista / Mayorista: </strong>${product.productor}`;
-  
+
     // Crear el origen del producto
     const productOrigen = document.createElement('p');
     productOrigen.classList.add('type');
     productOrigen.innerHTML= `<strong>Productor Local / Importado: </strong>${product.origen}`;
-  
+
     // Crear el formulario de comentarios
     const commentForm = document.createElement('form');
     commentForm.id = 'commentForm';
     commentForm.innerHTML = `
-
-    <h2>Califica este producto:</h2>
-
-    <div class="rating">
-        <span onclick="rate(5)">★</span>
-        <span onclick="rate(4)">★</span>
-        <span onclick="rate(3)">★</span>
-        <span onclick="rate(2)">★</span>
-        <span onclick="rate(1)">★</span>
-    </div>
-    
-    <p id="ratingSelected"></p>
-    <hr style="margin-top: 30px;">
-      <h3 style="margin-bottom: 30px;">Deja un comentario </h3>
+        <hr style="margin-top: 30px;">
+        <h3 style="margin-bottom: 30px;">Deja un comentario </h3>
         <div class="form-group">
             <label for="productName">Nombre del Producto:</label>
             <input type="text" id="productName" name="productName" value="${product.nombre_producto}" readonly>
@@ -121,10 +129,28 @@ document.addEventListener('DOMContentLoaded', async () => {
             <label for="comment">Comentario:</label>
             <textarea id="comment" name="comment" required></textarea>
         </div>
-        <input type="button" onclick="submitComment()" value="Enviar Comentario">
+
+        <h2>Califica este producto:</h2>
+
+        <div class="rating">
+            <span onclick="rate(5)">★</span>
+            <span onclick="rate(4)">★</span>
+            <span onclick="rate(3)">★</span>
+            <span onclick="rate(2)">★</span>
+            <span onclick="rate(1)">★</span>
+        </div>
+
+        <div class="form-group">
+            <label for="productId">Estrellas:</label>
+            <input type="text" id="calificacion" readonly required>
+        </div>
+
+        <input type="button" onclick="submitComment()" value="Enviar Comentario" class="btn btn-primary"> <!-- Cambiar el color del botón -->
+
     `;
-  
+
     // Agregar elementos al cuerpo de la tarjeta
+    cardBody.appendChild(promedioLabel);
     cardBody.appendChild(productName);
     cardBody.appendChild(productId);
     cardBody.appendChild(productDescription);
@@ -132,14 +158,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     cardBody.appendChild(productProductor);
     cardBody.appendChild(productOrigen);
     cardBody.appendChild(commentForm); // Agregar el formulario de comentarios
-  
+
     // Agregar el encabezado y el cuerpo a la tarjeta
     card.appendChild(cardHeader);
     card.appendChild(cardBody);
-  
+
     // Limpiar el contenedor antes de agregar la tarjeta
     productDetailsContainer.innerHTML = '';
-  
+
     // Agregar la tarjeta al contenedor
     productDetailsContainer.appendChild(card);
 
@@ -148,6 +174,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     favicon.href = `data:image/png;base64,${product.imagen_base64}`;
     document.head.appendChild(favicon);
 }
+
 
   
   

@@ -114,12 +114,12 @@ app.get('/productos', async (req, res) => {
 
 
 app.post('/comentarios', async (req, res) => {
-  const { productName, productId, name, email, comment } = req.body;
+  const { productName, productId, name, email, comment, rating } = req.body; // Agregar rating al destructuring
 
   try {
     // Insertar el comentario en la base de datos
-    const query = 'INSERT INTO comentarios (id_producto, nombre_producto, user_name, correo, comentario) VALUES ($1, $2, $3, $4, $5)';
-    await pool.query(query, [productId, productName, name, email, comment]);
+    const query = 'INSERT INTO comentarios (id_producto, nombre_producto, user_name, correo, comentario, calificacion) VALUES ($1, $2, $3, $4, $5, $6)'; // Agregar calificacion a la consulta
+    await pool.query(query, [productId, productName, name, email, comment, rating]); // Pasar la calificacion como parámetro
 
     res.status(201).json({ message: 'Comentario registrado correctamente' });
   } catch (error) {
@@ -127,6 +127,7 @@ app.post('/comentarios', async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+
 
 
 

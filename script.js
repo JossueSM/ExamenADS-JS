@@ -51,7 +51,6 @@ function renderProducts(products) {
   const parrafoTotal = document.createElement('div');
   parrafoTotal.innerHTML = `Total de productos:${total_productos}`;
 
-
   // Agregar el párrafo al contenedor de productos
   productContainer.appendChild(parrafoTotal);
 
@@ -68,19 +67,18 @@ function renderProducts(products) {
 
     // Crear la tarjeta de Bootstrap para el producto
     const card = document.createElement('div');
-    card.classList.add('card');
+    card.classList.add('card', 'bg-light'); // Agregar clase de Bootstrap para color de fondo claro
     card.style.width = '100%'; // Hacer que la tarjeta ocupe todo el ancho disponible
 
     // Contenido de la tarjeta
     card.innerHTML = `
-  
-    <div class="card-body" >
-    <img src="data:image/png;base64,${product.imagen_base64}" class="card-img-top img-fluid" alt="Product Image" style="width: 200px;height:200px">
+      <div class="card-body" >
+        <img src="data:image/png;base64,${product.imagen_base64}" class="card-img-top img-fluid" alt="Product Image" style="width: 200px;height:200px">
         <h5 class="card-title">${product.nombre_producto}</h5>
         <p class="card-text"><strong>ID: </strong>${product.id}</p>
         <p class="card-text">${product.descripcion}</p>
         <p class="card-text"><strong>Precio: </strong>${product.precio}</p>
-        <button class="btn btn-primary" onclick="window.location.href='producto.html?id=${product.id}'">Ver Detalles</button>
+        <button class="btn btn-secondary" onclick="window.location.href='producto.html?id=${product.id}'">Ver Detalles</button>
       </div>
     `;
 
@@ -97,6 +95,7 @@ function renderProducts(products) {
   // Actualizar el contenido del párrafo con el total de productos
   parrafoTotal.innerHTML = `<div class="totalp">Total de productos: ${total_productos}</h2>`;
 }
+
 
 
 

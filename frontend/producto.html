@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="/frontend/css/estilo.css">
   <link rel="stylesheet" href="/frontend/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <header>
     <h1>Catálogo de Productos</h1>
@@ -31,10 +32,12 @@
     
     <script>
     function rate(rating) {
-        document.getElementById("ratingSelected").innerText = "Has calificado con " + rating + " estrellas.";
+        document.getElementById("calificacion").value=rating;
         // Aquí podrías enviar la calificación al servidor o realizar otras acciones según sea necesario
     }
     </script>
+
+
 <style>
   .rating {
       unicode-bidi: bidi-override;
@@ -101,7 +104,7 @@
       
       <ul class="social-links">
         <li><a href="https://www.facebook.com/jossue.simancasmoreno"><i class="fab fa-facebook">Facebook</i></a></li>
-        <li><a href="#"><i class="fab fa-twitter">X</i></a></li>
+        <li><a href="#"><i class="fab fa-x-twitter"></i></a></li>
         <li><a href="https://www.instagram.com/jossue_s_m/"><i class="fab fa-instagram">Instagram</i></a></li>
       </ul>
     </div>
